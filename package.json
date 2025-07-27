@@ -1,0 +1,31 @@
+{
+  "name": "emirapp-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "emirapp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prepare": "tsc"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "execa": "^9.6.0",
+    "figlet": "^1.8.2",
+    "fs-extra": "^11.3.0",
+    "gradient-string": "^3.0.0",
+    "ora": "^8.2.0",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "^24.1.0",
+    "@types/prompts": "^2.4.9",
+    "typescript": "^5.8.3"
+  }
+}
