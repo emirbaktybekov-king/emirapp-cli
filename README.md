@@ -1,21 +1,20 @@
 # 🚀 EmirApp CLI
 
-A powerful command-line tool to quickly scaffold modern Next.js applications with enterprise-grade folder structure, TypeScript, Tailwind CSS, React Query, and Zod pre-configured.
+A powerful command-line tool to quickly scaffold modern Expo React Native applications with authentication, tab navigation, TypeScript, and React Query pre-configured.
 
 [![npm version](https://badge.fury.io/js/emirapp-cli.svg)](https://badge.fury.io/js/emirapp-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
 
-- 🎯 **Next.js 14+ Ready** - Uses the latest App Router architecture
-- 📁 **Enterprise Folder Structure** - Organized, scalable project layout
+- 🎯 **Expo React Native** - Modern React Native framework with Expo Router
+- 🔐 **Authentication Flow** - Complete phone number + OTP authentication
+- 📱 **Tab Navigation** - Beautiful tab navigation with Expo icons
 - 🔷 **TypeScript First** - Full TypeScript support out of the box
-- 🎨 **Tailwind CSS** - Pre-configured with modern styling
-- 🔄 **React Query** - Data fetching and state management ready
-- ✅ **Zod Validation** - Type-safe schema validation
-- 📦 **Yarn Package Manager** - Fast and reliable dependency management
-- 🔧 **Barrel Exports** - Clean import statements with index files
-- 🛡️ **Route Groups** - Organized authentication and protection patterns
+- 🎨 **Modern UI** - Clean, professional design with proper styling
+- 🔄 **React Query** - Data fetching and caching with TanStack React Query
+- 📦 **Complete Structure** - Well-organized folder structure and components
+- 🔧 **Ready to Use** - All dependencies installed and configured
 - 🌈 **Beautiful CLI** - Colorful interface with spinners and progress indicators
 - ⚡ **Fast Setup** - Optimized for speed with parallel operations
 - 🎨 **ASCII Art Banner** - Eye-catching welcome screen
