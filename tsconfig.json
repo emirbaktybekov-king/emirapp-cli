@@ -10,5 +10,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "src/mobile/ReactNative_Expo/enterprise/*.tsx",
+    "src/mobile/Flutter/*/template/**/*",
+    "src/website/*/template/**/*"
+  ]
 }
