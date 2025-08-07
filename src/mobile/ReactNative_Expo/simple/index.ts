@@ -2,7 +2,7 @@
 export const reactNativeExpoSimpleTemplates = {
   // App layout files
   "app/_layout.tsx": `import { Stack } from "expo-router";
-import { ProviderComponent } from "@/src/context/providers/ProviderComponent";
+import { ProviderComponent } from "../src/context/providers/ProviderComponent";
 
 export default function RootLayout() {
   return (
@@ -65,7 +65,7 @@ export default function AuthLayout() {
   );
 }`,
 
-  "app/(auth)/index.tsx": `import { SafeAreaScreenComponent } from "@/src/components/ui";
+  "app/(auth)/index.tsx": `import { SafeAreaScreenComponent } from "../../src/components/ui";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -248,8 +248,8 @@ const styles = StyleSheet.create({
   },
 });`,
 
-  "app/(auth)/otp.tsx": `import { SafeAreaScreenComponent } from "@/src/components/ui";
-import { useAuth } from "@/src/context/providers/AuthProvider";
+  "app/(auth)/otp.tsx": `import { SafeAreaScreenComponent } from "../../src/components/ui";
+import { useAuth } from "../../src/context/providers/AuthProvider";
 import { router } from "expo-router";
 import React, { useState, useRef, useEffect } from "react";
 import {
@@ -470,8 +470,8 @@ export default function ProtectedLayout() {
   );
 }`,
 
-  "app/(protected)/index.tsx": `import { SafeAreaScreenComponent } from "@/src/components/ui";
-import { useAuth } from "@/src/context/providers/AuthProvider";
+  "app/(protected)/index.tsx": `import { SafeAreaScreenComponent } from "../../src/components/ui";
+import { useAuth } from "../../src/context/providers/AuthProvider";
 import React from "react";
 import {
   StyleSheet,
@@ -544,7 +544,11 @@ const styles = StyleSheet.create({
 });`,
 
   // Add missing component files
-  "src/components/ui/index.ts": `export { SafeAreaScreenComponent } from './SafeAreaScreenComponent';`,
+  "src/components/ui/index.ts": `// UI Components barrel export
+export { SafeAreaScreenComponent } from './SafeAreaScreenComponent';`,
+
+  "src/components/index.ts": `// Components barrel export
+export * from './ui';`,
 
   "src/components/ui/SafeAreaScreenComponent.tsx": `import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
@@ -571,6 +575,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });`,
+
+  "src/context/providers/index.ts": `// Providers barrel export
+export { ProviderComponent } from './ProviderComponent';
+export { AuthProvider, useAuth } from './AuthProvider';`,
+
+  "src/context/index.ts": `// Context barrel export
+export * from './providers';`,
+
+  "src/index.ts": `// Main barrel export
+export * from './components';
+export * from './context';`,
 
   "src/context/providers/ProviderComponent.tsx": `import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -710,6 +725,50 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     </AuthContext.Provider>
   );
 };`,
+
+  // Configuration files
+  "tsconfig.json": `{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true
+  }
+}`,
+
+  "app.json": `{
+  "expo": {
+    "name": "Simple Auth App",
+    "slug": "simple-auth-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "scheme": "simple-auth-app"
+  }
+}`,
 };
 
 export const reactNativeExpoSimpleDependencies = [
